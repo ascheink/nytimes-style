@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>nytimes-style.rb</title>
+  <link rel="stylesheet" href="http://github.com/jashkenas/docco/raw/0.3.0/resources/docco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <table cellspacing=0 cellpadding=0>
+  <thead>
+    <tr>
+      <th class=docs><h1>nytimes-style.rb</h1></th>
+      <th class=code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id='section-1'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-1">&#182;</a>
+        </div>
+        
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="nb">require</span> <span class="s1">&#39;date&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-2'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-2">&#182;</a>
+        </div>
+        <p>Helper methods for generating text that conforms to <em>The New York Times Manual of Style and Usage</em>.</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">module</span> <span class="nn">Nytimes</span>
+  <span class="k">module</span> <span class="nn">Style</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-3'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-3">&#182;</a>
+        </div>
+        <blockquote><p>&ldquo;Abbreviate the names of months from August through
+February in news copy when they are followed by numerals: Aug. 1; Sept.
+2; Oct. 3; Nov. 4; Dec. 5; Jan. 6; Feb. 7. Do not abbreviate March,
+April, May, June and July except as a last resort in a chart or table.&rdquo;</p></blockquote>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+      <span class="s2">&quot;</span><span class="si">#{</span><span class="n">nytimes_month_and_day</span> <span class="n">date</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">end</span>
+    
+    <span class="k">def</span> <span class="nf">nytimes_month_and_day</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+      <span class="s2">&quot;</span><span class="si">#{</span><span class="n">nytimes_month</span> <span class="n">date</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">date</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">end</span>
+    
+    <span class="k">def</span> <span class="nf">nytimes_month</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
+      <span class="k">raise</span> <span class="no">ArgumentError</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Unknown month: </span><span class="si">#{</span><span class="n">month</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">include?</span> <span class="n">month</span>
+      <span class="sx">%w(Jan. Feb. March April May June July Aug. Sept. Oct. Nov. Dec.)</span><span class="o">[</span><span class="n">month</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span>
+    <span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-4'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-4">&#182;</a>
+        </div>
+        <blockquote><p>&ldquo;The abbreviation to be used for each state, after the names of cities,
+towns and counties&hellip; Use no
+spaces between initials like N.H. Do not abbreviate Alaska, Hawaii, Idaho,
+Iowa, Ohio and Utah. (Do not ordinarily use the Postal Service’s
+two-letter abbreviations; some are hard to tell apart on quick reading.)&rdquo;</p></blockquote>
+
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_state_abbrev</span><span class="p">(</span><span class="n">postal_code_or_state_name</span><span class="p">)</span>
+      <span class="n">state</span> <span class="o">=</span> <span class="n">states</span><span class="o">[</span><span class="n">postal_code_or_state_name</span><span class="o">]</span>
+      <span class="k">raise</span> <span class="no">ArgumentError</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Unknown postal code or state name: </span><span class="si">#{</span><span class="n">postal_code_or_state_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">state</span>
+      <span class="n">state</span><span class="o">[</span><span class="s1">&#39;nytimes_abbrev&#39;</span><span class="o">]</span>
+    <span class="k">end</span>
+    
+    <span class="kp">private</span>
+    
+    <span class="k">def</span> <span class="nf">states</span>
+      <span class="k">unless</span> <span class="vi">@states</span>
+        <span class="vi">@states</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="no">YAML</span><span class="o">::</span><span class="nb">load</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">),</span> <span class="s1">&#39;nytimes-style/states.yml&#39;</span><span class="p">)))</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">state</span><span class="o">|</span>
+          <span class="vi">@states</span><span class="o">[</span><span class="n">state</span><span class="o">[</span><span class="s1">&#39;postal_code&#39;</span><span class="o">]]</span> <span class="o">=</span> <span class="vi">@states</span><span class="o">[</span><span class="n">state</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">]]</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+      <span class="k">return</span> <span class="vi">@states</span>
+    <span class="k">end</span>
+
+  <span class="k">end</span>
+<span class="k">end</span></pre></div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
