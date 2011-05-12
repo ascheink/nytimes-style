@@ -1,7 +1,8 @@
 require 'date'
 require 'yaml'
 
-# Helper methods for generating text that conforms to _The New York Times Manual of Style and Usage_.
+# A small set of helper methods for generating text that conforms to _The New York Times Manual of Style and Usage_,
+# written by [Andrei Scheinkman](https://andreischeinkman.com) and hosted on [Github](https://github.com/ascheink/nytimes-style).
 module Nytimes
   module Style
     
