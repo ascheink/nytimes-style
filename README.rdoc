@@ -10,7 +10,6 @@ Annotated source code: http://ascheink.github.com/nytimes-style
 
 == USAGE
 
-```ruby
   require 'nytimes-style'
   include Nytimes::Style
   
@@ -19,7 +18,6 @@ Annotated source code: http://ascheink.github.com/nytimes-style
 
   >> nytimes_state_abbrev 'AZ'
   # => "Ariz."  
-```
 
 == AUTHOR
 
