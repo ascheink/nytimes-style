@@ -37,13 +37,35 @@
       </td>
       <td class=code>
         <div class='highlight'><pre><span class="k">module</span> <span class="nn">Nytimes</span>
-  <span class="k">module</span> <span class="nn">Style</span></pre></div>
+  <span class="k">module</span> <span class="nn">Style</span>
+    </pre></div>
       </td>
     </tr>
     <tr id='section-3'>
       <td class=docs>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-3">&#182;</a>
+        </div>
+        <blockquote><p>&ldquo;In general, spell out the first nine cardinal and
+ordinal numbers [but] spell any number that begins a sentence&hellip;&rdquo;
+There are many exceptions to this rule including &ldquo;ages of people
+and animals,&rdquo; &ldquo;sums of money,&rdquo; &ldquo;degrees of temperature&rdquo; and &ldquo;mentions of the Twelve
+Apostles and the Ten Commandments.&rdquo;</p></blockquote>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_number</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span>
+        <span class="sx">%w(one two three four five six seven eight nine ten)</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span>
+      <span class="k">else</span>
+        <span class="n">n</span><span class="o">.</span><span class="n">to_s</span>
+      <span class="k">end</span>
+    <span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-4'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-4">&#182;</a>
         </div>
         <blockquote><p>&ldquo;Abbreviate the names of months from August through
 February in news copy when they are followed by numerals: Aug. 1; Sept.
@@ -65,10 +87,10 @@ April, May, June and July except as a last resort in a chart or table.&rdquo;</p
     <span class="k">end</span></pre></div>
       </td>
     </tr>
-    <tr id='section-4'>
+    <tr id='section-5'>
       <td class=docs>
         <div class="pilwrap">
-          <a class="pilcrow" href="#section-4">&#182;</a>
+          <a class="pilcrow" href="#section-5">&#182;</a>
         </div>
         <blockquote><p>&ldquo;The abbreviation to be used for each state, after the names of cities,
 towns and counties&hellip; Use no
