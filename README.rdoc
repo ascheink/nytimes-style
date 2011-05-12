@@ -1,6 +1,6 @@
 = nytimes-style
 
-Helper methods for generating text that conforms to _The New York Times Manual of Style and Usage_.
+Helper methods for generating text that conforms to <em>The New York Times Manual of Style and Usage</em>.
 
 Annotated source code: http://ascheink.github.com/nytimes-style
 
@@ -10,6 +10,7 @@ Annotated source code: http://ascheink.github.com/nytimes-style
 
 == USAGE
 
+```ruby
   require 'nytimes-style'
   include Nytimes::Style
   
@@ -18,6 +19,7 @@ Annotated source code: http://ascheink.github.com/nytimes-style
 
   >> nytimes_state_abbrev 'AZ'
   # => "Ariz."  
+```
 
 == AUTHOR
 
