@@ -4,6 +4,19 @@ require 'yaml'
 # Helper methods for generating text that conforms to _The New York Times Manual of Style and Usage_.
 module Nytimes
   module Style
+    
+    # > "In general, spell out the first nine cardinal and 
+    # > ordinal numbers [but] spell any number that begins a sentence..."
+    # There are many exceptions to this rule including "ages of people 
+    # and animals," "sums of money," "degrees of temperature" and "mentions of the Twelve 
+    # Apostles and the Ten Commandments."
+    def nytimes_number(n)
+      if n < 10
+        %w(one two three four five six seven eight nine ten)[n - 1]
+      else
+        n.to_s
+      end
+    end
 
     # > "Abbreviate the names of months from August through
     # > February in news copy when they are followed by numerals: Aug. 1; Sept.

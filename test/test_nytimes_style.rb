@@ -16,4 +16,9 @@ class NytimesStyleTest < Test::Unit::TestCase
     assert_raise(ArgumentError) { nytimes_state_abbrev('Canada') }
   end
   
+  def test_numbers
+    assert_equal nytimes_number(5), 'five'
+    assert_equal nytimes_number(12), '12'
+  end
+  
 end
