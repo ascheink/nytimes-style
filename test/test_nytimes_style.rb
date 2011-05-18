@@ -7,6 +7,7 @@ class NytimesStyleTest < Test::Unit::TestCase
     date = Date.civil(2001, 9, 11)
     assert_equal nytimes_month_and_day(date), "Sept. 11"
     assert_equal nytimes_date(date), "Sept. 11, 2001"
+    assert_equal nytimes_date(date, :day_of_week => true), "Tuesday, Sept. 11, 2001"
     assert_raise(ArgumentError) { nytimes_month(0) }
   end
   

@@ -23,8 +23,10 @@ module Nytimes
     # > February in news copy when they are followed by numerals: Aug. 1; Sept.
     # > 2; Oct. 3; Nov. 4; Dec. 5; Jan. 6; Feb. 7. Do not abbreviate March,
     # > April, May, June and July except as a last resort in a chart or table."
-    def nytimes_date(date)
-      "#{nytimes_month_and_day date}, #{date.year}"
+    def nytimes_date(date, opts={})
+      str = ""
+      str << date.strftime('%A, ') if opts[:day_of_week]
+      str << "#{nytimes_month_and_day date}, #{date.year}"
     end
     
     def nytimes_month_and_day(date)
