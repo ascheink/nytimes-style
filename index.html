@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <title>nytimes-style.rb</title>
-  <link rel="stylesheet" href="http://github.com/jashkenas/docco/raw/0.3.0/resources/docco.css">
+  <link rel="stylesheet" href="http://jashkenas.github.com/docco/resources/docco.css">
 </head>
 <body>
 <div id='container'>
@@ -34,7 +34,7 @@
           <a class="pilcrow" href="#section-2">&#182;</a>
         </div>
         <p>A small set of helper methods for generating text that conforms to <em>The New York Times Manual of Style and Usage</em>,
-written by <a href="https://andreischeinkman.com">Andrei Scheinkman</a> and hosted on <a href="https://github.com/ascheink/nytimes-style">Github</a>.</p>
+hosted on <a href="https://github.com/ascheink/nytimes-style">Github</a>.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre><span class="k">module</span> <span class="nn">Nytimes</span>
@@ -49,14 +49,14 @@ written by <a href="https://andreischeinkman.com">Andrei Scheinkman</a> and host
         </div>
         <blockquote><p>&ldquo;In general, spell out the first nine cardinal and
 ordinal numbers [but] spell any number that begins a sentence&hellip;&rdquo;
-There are many exceptions to this rule including &ldquo;ages of people
+Exceptions include &ldquo;ages of people
 and animals,&rdquo; &ldquo;sums of money,&rdquo; &ldquo;degrees of temperature&rdquo; and &ldquo;mentions of the Twelve
 Apostles and the Ten Commandments.&rdquo;</p></blockquote>
       </td>
       <td class=code>
         <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_number</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
       <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span>
-        <span class="sx">%w(one two three four five six seven eight nine ten)</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span>
+        <span class="sx">%w(one two three four five six seven eight nine)</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span>
       <span class="k">else</span>
         <span class="n">n</span><span class="o">.</span><span class="n">to_s</span>
       <span class="k">end</span>
@@ -74,8 +74,10 @@ February in news copy when they are followed by numerals: Aug. 1; Sept.
 April, May, June and July except as a last resort in a chart or table.&rdquo;</p></blockquote>
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
-      <span class="s2">&quot;</span><span class="si">#{</span><span class="n">nytimes_month_and_day</span> <span class="n">date</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span>
+        <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_date</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">opts</span><span class="o">=</span><span class="p">{})</span>
+      <span class="n">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+      <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A, &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">opts</span><span class="o">[</span><span class="ss">:day_of_week</span><span class="o">]</span>
+      <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">nytimes_month_and_day</span> <span class="n">date</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="k">end</span>
     
     <span class="k">def</span> <span class="nf">nytimes_month_and_day</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
@@ -108,16 +110,15 @@ two-letter abbreviations; some are hard to tell apart on quick reading.)&rdquo;<
     <span class="k">end</span>
     
     <span class="kp">private</span>
-    
+
+    <span class="no">STATE_DATA_FILE</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">),</span> <span class="s1">&#39;nytimes-style/states.yml&#39;</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="nf">states</span>
-      <span class="k">unless</span> <span class="vi">@states</span>
-        <span class="vi">@states</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="no">YAML</span><span class="o">::</span><span class="nb">load</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">),</span> <span class="s1">&#39;nytimes-style/states.yml&#39;</span><span class="p">)))</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">state</span><span class="o">|</span>
-          <span class="vi">@states</span><span class="o">[</span><span class="n">state</span><span class="o">[</span><span class="s1">&#39;postal_code&#39;</span><span class="o">]]</span> <span class="o">=</span> <span class="vi">@states</span><span class="o">[</span><span class="n">state</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">]]</span> <span class="o">=</span> <span class="n">state</span>
-        <span class="k">end</span>
+      <span class="vi">@states</span> <span class="o">||=</span> <span class="no">YAML</span><span class="o">::</span><span class="nb">load</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">STATE_DATA_FILE</span><span class="p">))</span><span class="o">.</span><span class="n">inject</span><span class="p">({})</span> <span class="k">do</span> <span class="o">|</span><span class="n">h</span><span class="p">,</span> <span class="n">state</span><span class="o">|</span>
+        <span class="n">h</span><span class="o">.</span><span class="n">merge</span><span class="p">({</span> <span class="n">state</span><span class="o">[</span><span class="s1">&#39;postal_code&#39;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">state</span><span class="p">,</span> <span class="n">state</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">state</span> <span class="p">})</span>
       <span class="k">end</span>
-      <span class="k">return</span> <span class="vi">@states</span>
     <span class="k">end</span>
+    
 
   <span class="k">end</span>
 <span class="k">end</span></pre></div>
