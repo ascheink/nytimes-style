@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <title>nytimes-style.rb</title>
-  <link rel="stylesheet" href="http://jashkenas.github.com/docco/resources/docco.css">
+  <link rel="stylesheet" href="http://github.com/jashkenas/docco/raw/0.3.0/resources/docco.css">
 </head>
 <body>
 <div id='container'>
@@ -77,7 +77,9 @@ April, May, June and July except as a last resort in a chart or table.&rdquo;</p
         <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_date</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">opts</span><span class="o">=</span><span class="p">{})</span>
       <span class="n">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
       <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A, &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">opts</span><span class="o">[</span><span class="ss">:day_of_week</span><span class="o">]</span>
-      <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">nytimes_month_and_day</span> <span class="n">date</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span>
+      <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">nytimes_month_and_day</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+      <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;, </span><span class="si">#{</span><span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">opts</span><span class="o">[</span><span class="ss">:hide_current_year</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">date</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span><span class="o">.</span><span class="n">year</span>
+      <span class="k">return</span> <span class="n">str</span>
     <span class="k">end</span>
     
     <span class="k">def</span> <span class="nf">nytimes_month_and_day</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
