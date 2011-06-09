@@ -2,18 +2,18 @@ require 'date'
 require 'yaml'
 
 # A small set of helper methods for generating text that conforms to _The New York Times Manual of Style and Usage_,
-# written by [Andrei Scheinkman](https://andreischeinkman.com) and hosted on [Github](https://github.com/ascheink/nytimes-style).
+# hosted on [Github](https://github.com/ascheink/nytimes-style).
 module Nytimes
   module Style
     
     # > "In general, spell out the first nine cardinal and 
     # > ordinal numbers [but] spell any number that begins a sentence..."
-    # There are many exceptions to this rule including "ages of people 
+    # Exceptions include "ages of people 
     # and animals," "sums of money," "degrees of temperature" and "mentions of the Twelve 
     # Apostles and the Ten Commandments."
     def nytimes_number(n)
       if n < 10
-        %w(one two three four five six seven eight nine ten)[n - 1]
+        %w(one two three four five six seven eight nine)[n - 1]
       else
         n.to_s
       end
@@ -52,16 +52,15 @@ module Nytimes
     end
     
     private
-    
+
+    STATE_DATA_FILE = File.join(File.dirname(__FILE__), 'nytimes-style/states.yml')
+
     def states
-      unless @states
-        @states = {}
-        YAML::load(File.open(File.join(File.dirname(__FILE__), 'nytimes-style/states.yml'))).each do |state|
-          @states[state['postal_code']] = @states[state['name']] = state
-        end
+      @states ||= YAML::load(File.open(STATE_DATA_FILE)).inject({}) do |h, state|
+        h.merge({ state['postal_code'] => state, state['name'] => state })
       end
-      return @states
     end
+    
 
   end
 end
