@@ -26,7 +26,9 @@ module Nytimes
     def nytimes_date(date, opts={})
       str = ""
       str << date.strftime('%A, ') if opts[:day_of_week]
-      str << "#{nytimes_month_and_day date}, #{date.year}"
+      str << nytimes_month_and_day(date)
+      str << ", #{date.year}" unless opts[:hide_current_year] && date.year == Date.today.year
+      return str
     end
     
     def nytimes_month_and_day(date)
