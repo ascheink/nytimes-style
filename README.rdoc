@@ -16,8 +16,14 @@ Annotated source code: http://ascheink.github.com/nytimes-style
   >> nytimes_date Date.today
   # => "May 12, 2011"
 
+  >> nytimes_date Date.today, :hide_current_year => true, :day_of_week => true
+  # => "Wednesday, June 15"  
+
   >> nytimes_state_abbrev 'AZ'
   # => "Ariz."  
+
+  >> nytimes_state_name '55'
+  # => "Wisconsin"  
 
 == AUTHOR
 
