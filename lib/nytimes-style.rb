@@ -45,10 +45,16 @@ module Nytimes
     # > spaces between initials like N.H. Do not abbreviate Alaska, Hawaii, Idaho,
     # > Iowa, Ohio and Utah. (Do not ordinarily use the Postal Service’s
     # > two-letter abbreviations; some are hard to tell apart on quick reading.)"
-    def nytimes_state_abbrev(postal_code_or_state_name)
-      state = states[postal_code_or_state_name]
-      raise ArgumentError.new "Unknown postal code or state name: #{postal_code_or_state_name}" unless state
+    def nytimes_state_abbrev(state_name_or_code)
+      state = states[state_name_or_code]
+      raise ArgumentError.new "Unknown postal code, state name or FIPS code: #{state_name_or_code}" unless state
       state['nytimes_abbrev']
+    end
+    
+    def nytimes_state_name(state_abbrev_or_code)
+      state = states[state_abbrev_or_code]
+      raise ArgumentError.new "Unknown postal code, abbreviation or FIPS code: #{state_abbrev_or_code}" unless state
+      state['name']
     end
     
     private
@@ -57,7 +63,7 @@ module Nytimes
 
     def states
       @states ||= YAML::load(File.open(STATE_DATA_FILE)).inject({}) do |h, state|
-        h.merge({ state['postal_code'] => state, state['name'] => state })
+        h.merge({ state['postal_code'] => state, state['name'] => state, state['fips_code'] => state })
       end
     end
     

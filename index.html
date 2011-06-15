@@ -105,10 +105,16 @@ two-letter abbreviations; some are hard to tell apart on quick reading.)&rdquo;<
 
       </td>
       <td class=code>
-        <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_state_abbrev</span><span class="p">(</span><span class="n">postal_code_or_state_name</span><span class="p">)</span>
-      <span class="n">state</span> <span class="o">=</span> <span class="n">states</span><span class="o">[</span><span class="n">postal_code_or_state_name</span><span class="o">]</span>
-      <span class="k">raise</span> <span class="no">ArgumentError</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Unknown postal code or state name: </span><span class="si">#{</span><span class="n">postal_code_or_state_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">state</span>
+        <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_state_abbrev</span><span class="p">(</span><span class="n">state_name_or_code</span><span class="p">)</span>
+      <span class="n">state</span> <span class="o">=</span> <span class="n">states</span><span class="o">[</span><span class="n">state_name_or_code</span><span class="o">]</span>
+      <span class="k">raise</span> <span class="no">ArgumentError</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Unknown postal code, state name or FIPS code: </span><span class="si">#{</span><span class="n">state_name_or_code</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">state</span>
       <span class="n">state</span><span class="o">[</span><span class="s1">&#39;nytimes_abbrev&#39;</span><span class="o">]</span>
+    <span class="k">end</span>
+    
+    <span class="k">def</span> <span class="nf">nytimes_state_name</span><span class="p">(</span><span class="n">state_abbrev_or_code</span><span class="p">)</span>
+      <span class="n">state</span> <span class="o">=</span> <span class="n">states</span><span class="o">[</span><span class="n">state_abbrev_or_code</span><span class="o">]</span>
+      <span class="k">raise</span> <span class="no">ArgumentError</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Unknown postal code, abbreviation or FIPS code: </span><span class="si">#{</span><span class="n">state_abbrev_or_code</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">state</span>
+      <span class="n">state</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">]</span>
     <span class="k">end</span>
     
     <span class="kp">private</span>
@@ -117,7 +123,7 @@ two-letter abbreviations; some are hard to tell apart on quick reading.)&rdquo;<
 
     <span class="k">def</span> <span class="nf">states</span>
       <span class="vi">@states</span> <span class="o">||=</span> <span class="no">YAML</span><span class="o">::</span><span class="nb">load</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="no">STATE_DATA_FILE</span><span class="p">))</span><span class="o">.</span><span class="n">inject</span><span class="p">({})</span> <span class="k">do</span> <span class="o">|</span><span class="n">h</span><span class="p">,</span> <span class="n">state</span><span class="o">|</span>
-        <span class="n">h</span><span class="o">.</span><span class="n">merge</span><span class="p">({</span> <span class="n">state</span><span class="o">[</span><span class="s1">&#39;postal_code&#39;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">state</span><span class="p">,</span> <span class="n">state</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">state</span> <span class="p">})</span>
+        <span class="n">h</span><span class="o">.</span><span class="n">merge</span><span class="p">({</span> <span class="n">state</span><span class="o">[</span><span class="s1">&#39;postal_code&#39;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">state</span><span class="p">,</span> <span class="n">state</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">state</span><span class="p">,</span> <span class="n">state</span><span class="o">[</span><span class="s1">&#39;fips_code&#39;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="n">state</span> <span class="p">})</span>
       <span class="k">end</span>
     <span class="k">end</span>
     

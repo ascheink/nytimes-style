@@ -1,153 +1,200 @@
-- nytimes_abbrev: Ala.
-  postal_code: AL
+- fips_code: 1
   name: Alabama
-- nytimes_abbrev: Alaska
-  postal_code: AK
+  nytimes_abbrev: Ala.
+  postal_code: AL
+- fips_code: 2
   name: Alaska
-- nytimes_abbrev: Ariz.
-  postal_code: AZ
+  nytimes_abbrev: Alaska
+  postal_code: AK
+- fips_code: 4
   name: Arizona
-- nytimes_abbrev: Ark.
-  postal_code: AR
+  nytimes_abbrev: Ariz.
+  postal_code: AZ
+- fips_code: 5
   name: Arkansas
-- nytimes_abbrev: Calif.
-  postal_code: CA
+  nytimes_abbrev: Ark.
+  postal_code: AR
+- fips_code: 6
   name: California
-- nytimes_abbrev: Colo.
-  postal_code: CO
+  nytimes_abbrev: Calif.
+  postal_code: CA
+- fips_code: 8
   name: Colorado
-- nytimes_abbrev: Conn.
-  postal_code: CT
+  nytimes_abbrev: Colo.
+  postal_code: CO
+- fips_code: 9
   name: Connecticut
-- nytimes_abbrev: Del.
-  postal_code: DE
+  nytimes_abbrev: Conn.
+  postal_code: CT
+- fips_code: 10
   name: Delaware
-- nytimes_abbrev: D.C.
-  postal_code: DC
-  name: District of Columbia
-- nytimes_abbrev: Fla.
-  postal_code: FL
+  nytimes_abbrev: Del.
+  postal_code: DE
+- fips_code: 12
   name: Florida
-- nytimes_abbrev: Ga.
-  postal_code: GA
+  nytimes_abbrev: Fla.
+  postal_code: FL
+- fips_code: 13
   name: Georgia
-- nytimes_abbrev: Hawaii
-  postal_code: HI
+  nytimes_abbrev: Ga.
+  postal_code: GA
+- fips_code: 15
   name: Hawaii
-- nytimes_abbrev: Idaho
-  postal_code: ID
+  nytimes_abbrev: Hawaii
+  postal_code: HI
+- fips_code: 16
   name: Idaho
-- nytimes_abbrev: Ill.
-  postal_code: IL
+  nytimes_abbrev: Idaho
+  postal_code: ID
+- fips_code: 17
   name: Illinois
-- nytimes_abbrev: Ind.
-  postal_code: IN
+  nytimes_abbrev: Ill.
+  postal_code: IL
+- fips_code: 18
   name: Indiana
-- nytimes_abbrev: Iowa
-  postal_code: IA
+  nytimes_abbrev: Ind.
+  postal_code: IN
+- fips_code: 19
   name: Iowa
-- nytimes_abbrev: Kan.
-  postal_code: KS
+  nytimes_abbrev: Iowa
+  postal_code: IA
+- fips_code: 20
   name: Kansas
-- nytimes_abbrev: Ky.
-  postal_code: KY
+  nytimes_abbrev: Kan.
+  postal_code: KS
+- fips_code: 21
   name: Kentucky
-- nytimes_abbrev: La.
-  postal_code: LA
+  nytimes_abbrev: Ky.
+  postal_code: KY
+- fips_code: 22
   name: Louisiana
-- nytimes_abbrev: Me.
-  postal_code: ME
+  nytimes_abbrev: La.
+  postal_code: LA
+- fips_code: 23
   name: Maine
-- nytimes_abbrev: Md.
-  postal_code: MD
+  nytimes_abbrev: Me.
+  postal_code: ME
+- fips_code: 24
   name: Maryland
-- nytimes_abbrev: Mass.
-  postal_code: MA
+  nytimes_abbrev: Md.
+  postal_code: MD
+- fips_code: 25
   name: Massachusetts
-- nytimes_abbrev: Mich.
-  postal_code: MI
+  nytimes_abbrev: Mass.
+  postal_code: MA
+- fips_code: 26
   name: Michigan
-- nytimes_abbrev: Minn.
-  postal_code: MN
+  nytimes_abbrev: Mich.
+  postal_code: MI
+- fips_code: 27
   name: Minnesota
-- nytimes_abbrev: Miss.
-  postal_code: MS
+  nytimes_abbrev: Minn.
+  postal_code: MN
+- fips_code: 28
   name: Mississippi
-- nytimes_abbrev: Mo.
-  postal_code: MO
+  nytimes_abbrev: Miss.
+  postal_code: MS
+- fips_code: 29
   name: Missouri
-- nytimes_abbrev: Mont.
-  postal_code: MT
+  nytimes_abbrev: Mo.
+  postal_code: MO
+- fips_code: 30
   name: Montana
-- nytimes_abbrev: Neb.
-  postal_code: NE
+  nytimes_abbrev: Mont.
+  postal_code: MT
+- fips_code: 31
   name: Nebraska
-- nytimes_abbrev: Nev.
-  postal_code: NV
+  nytimes_abbrev: Neb.
+  postal_code: NE
+- fips_code: 32
   name: Nevada
-- nytimes_abbrev: N.H.
-  postal_code: NH
+  nytimes_abbrev: Nev.
+  postal_code: NV
+- fips_code: 33
   name: New Hampshire
-- nytimes_abbrev: N.J.
-  postal_code: NJ
+  nytimes_abbrev: N.H.
+  postal_code: NH
+- fips_code: 34
   name: New Jersey
-- nytimes_abbrev: N.M.
-  postal_code: NM
+  nytimes_abbrev: N.J.
+  postal_code: NJ
+- fips_code: 35
   name: New Mexico
-- nytimes_abbrev: N.Y.
-  postal_code: NY
+  nytimes_abbrev: N.M.
+  postal_code: NM
+- fips_code: 36
   name: New York
-- nytimes_abbrev: N.C.
-  postal_code: NC
+  nytimes_abbrev: N.Y.
+  postal_code: NY
+- fips_code: 37
   name: North Carolina
-- nytimes_abbrev: N.D.
-  postal_code: ND
+  nytimes_abbrev: N.C.
+  postal_code: NC
+- fips_code: 38
   name: North Dakota
-- nytimes_abbrev: Ohio
-  postal_code: OH
+  nytimes_abbrev: N.D.
+  postal_code: ND
+- fips_code: 39
   name: Ohio
-- nytimes_abbrev: Okla.
-  postal_code: OK
+  nytimes_abbrev: Ohio
+  postal_code: OH
+- fips_code: 40
   name: Oklahoma
-- nytimes_abbrev: Ore.
-  postal_code: OR
+  nytimes_abbrev: Okla.
+  postal_code: OK
+- fips_code: 41
   name: Oregon
-- nytimes_abbrev: Pa.
-  postal_code: PA
+  nytimes_abbrev: Ore.
+  postal_code: OR
+- fips_code: 42
   name: Pennsylvania
-- nytimes_abbrev: R.I.
-  postal_code: RI
+  nytimes_abbrev: Pa.
+  postal_code: PA
+- fips_code: 44
   name: Rhode Island
-- nytimes_abbrev: S.C.
-  postal_code: SC
+  nytimes_abbrev: R.I.
+  postal_code: RI
+- fips_code: 45
   name: South Carolina
-- nytimes_abbrev: S.D.
-  postal_code: SD
+  nytimes_abbrev: S.C.
+  postal_code: SC
+- fips_code: 46
   name: South Dakota
-- nytimes_abbrev: Tenn.
-  postal_code: TN
+  nytimes_abbrev: S.D.
+  postal_code: SD
+- fips_code: 47
   name: Tennessee
-- nytimes_abbrev: Tex.
-  postal_code: TX
+  nytimes_abbrev: Tenn.
+  postal_code: TN
+- fips_code: 48
   name: Texas
-- nytimes_abbrev: Utah
-  postal_code: UT
+  nytimes_abbrev: Tex.
+  postal_code: TX
+- fips_code: 49
   name: Utah
-- nytimes_abbrev: Vt.
-  postal_code: VT
+  nytimes_abbrev: Utah
+  postal_code: UT
+- fips_code: 50
   name: Vermont
-- nytimes_abbrev: Va.
-  postal_code: VA
+  nytimes_abbrev: Vt.
+  postal_code: VT
+- fips_code: 51
   name: Virginia
-- nytimes_abbrev: Wash.
-  postal_code: WA
+  nytimes_abbrev: Va.
+  postal_code: VA
+- fips_code: 53
   name: Washington
-- nytimes_abbrev: W.Va.
-  postal_code: WV
+  nytimes_abbrev: Wash.
+  postal_code: WA
+- fips_code: 54
   name: West Virginia
-- nytimes_abbrev: Wis.
-  postal_code: WI
+  nytimes_abbrev: W.Va.
+  postal_code: WV
+- fips_code: 55
   name: Wisconsin
-- nytimes_abbrev: Wyo.
-  postal_code: WY
+  nytimes_abbrev: Wis.
+  postal_code: WI
+- fips_code: 56
   name: Wyoming
+  nytimes_abbrev: Wyo.
+  postal_code: WY

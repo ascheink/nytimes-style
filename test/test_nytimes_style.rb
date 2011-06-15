@@ -21,8 +21,16 @@ class NytimesStyleTest < Test::Unit::TestCase
   
   def test_state_abbrevs
     assert_equal 'Ariz.', nytimes_state_abbrev('AZ')
-    assert_equal 'N.H.',  nytimes_state_abbrev('New Hampshire'), 
+    assert_equal 'N.H.',  nytimes_state_abbrev('New Hampshire')
+    assert_equal 'Wis.',  nytimes_state_abbrev(55)
     assert_raise(ArgumentError) { nytimes_state_abbrev('Canada') }
+  end
+  
+  def test_state_names
+    assert_equal 'Arizona', nytimes_state_name('AZ')
+    assert_equal 'New Hampshire',  nytimes_state_name('New Hampshire')
+    assert_equal 'Wisconsin',  nytimes_state_name(55)
+    assert_raise(ArgumentError) { nytimes_state_name(242) }
   end
   
   def test_numbers
