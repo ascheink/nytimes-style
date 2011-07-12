@@ -16,12 +16,12 @@ namespace :gem do
   desc 'Build and install the gem'
   task :install do
     sh "gem build nytimes-style.gemspec"
-    sh "sudo gem install #{Dir['*.gem'].join(' ')} --local --no-ri --no-rdoc"
+    sh "gem install #{Dir['*.gem'].join(' ')} --local --no-ri --no-rdoc"
   end
 
   desc 'Uninstall the jammit gem'
   task :uninstall do
-    sh "sudo gem uninstall -x nytimes-style"
+    sh "gem uninstall -x nytimes-style"
   end
   
 end

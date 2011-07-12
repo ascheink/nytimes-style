@@ -17,7 +17,10 @@ Annotated source code: http://ascheink.github.com/nytimes-style
   # => "May 12, 2011"
 
   >> nytimes_date Date.today, :hide_current_year => true, :day_of_week => true
-  # => "Wednesday, June 15"  
+  # => "Wednesday, June 15"
+  
+  >> nytimes_time Time.now, :hide_abbreviation => false
+  # => "2:30 p.m."
 
   >> nytimes_state_abbrev 'AZ'
   # => "Ariz."  
@@ -25,6 +28,7 @@ Annotated source code: http://ascheink.github.com/nytimes-style
   >> nytimes_state_name '55'
   # => "Wisconsin"  
 
-== AUTHOR
+== AUTHORS
 
 Andrei Scheinkman, andrei@nytimes.com
+Tyson Evans, tyson.evans@nytimes.com
