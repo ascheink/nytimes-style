@@ -19,6 +19,13 @@ class NytimesStyleTest < Test::Unit::TestCase
     assert_equal "Feb. 12", nytimes_date(recent_date, :hide_current_year => true)
   end
   
+  def test_time
+    time = Time.local(2011, 7, 12, 14, 30, 30)
+    assert_equal "2:30 p.m.", nytimes_time(time)
+    assert_equal "2:30", nytimes_time(time, :hide_abbreviation => true)
+    assert_raise(ArgumentError) { nytimes_time(Date.today) }
+  end
+  
   def test_state_abbrevs
     assert_equal 'Ariz.', nytimes_state_abbrev('AZ')
     assert_equal 'N.H.',  nytimes_state_abbrev('New Hampshire')
