@@ -89,13 +89,33 @@ April, May, June and July except as a last resort in a chart or table.&rdquo;</p
     <span class="k">def</span> <span class="nf">nytimes_month</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
       <span class="k">raise</span> <span class="no">ArgumentError</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Unknown month: </span><span class="si">#{</span><span class="n">month</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">include?</span> <span class="n">month</span>
       <span class="sx">%w(Jan. Feb. March April May June July Aug. Sept. Oct. Nov. Dec.)</span><span class="o">[</span><span class="n">month</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span>
-    <span class="k">end</span></pre></div>
+    <span class="k">end</span>
+    </pre></div>
       </td>
     </tr>
     <tr id='section-5'>
       <td class=docs>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-5">&#182;</a>
+        </div>
+        <blockquote><p>&ldquo;Use numerals in giving clock time: 10:30 a.m.; 10:30.
+Do not use half-past 10 except in a direct quotation.
+Also avoid the redundant 10:30 a.m. yesterday morning and Monday afternoon at 2 p.m.&rdquo;</p></blockquote>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">opts</span><span class="o">=</span><span class="p">{})</span>
+      <span class="k">raise</span> <span class="no">ArgumentError</span><span class="o">.</span><span class="n">new</span> <span class="s2">&quot;Time or DateTime required&quot;</span> <span class="k">unless</span> <span class="n">time</span><span class="o">.</span><span class="n">class</span> <span class="o">==</span> <span class="no">DateTime</span> <span class="o">||</span> <span class="n">time</span><span class="o">.</span><span class="n">class</span> <span class="o">==</span> <span class="no">Time</span>
+      <span class="n">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+      <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%l:%M&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span>
+      <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot; %p&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;PM&#39;</span><span class="p">,</span><span class="s1">&#39;p.m.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;AM&#39;</span><span class="p">,</span><span class="s1">&#39;a.m.&#39;</span><span class="p">)</span> <span class="k">unless</span> <span class="n">opts</span><span class="o">[</span><span class="ss">:hide_abbreviation</span><span class="o">]</span>
+      <span class="n">str</span>
+    <span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-6'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-6">&#182;</a>
         </div>
         <blockquote><p>&ldquo;The abbreviation to be used for each state, after the names of cities,
 towns and counties&hellip; Use no
