@@ -31,4 +31,5 @@ Annotated source code: http://ascheink.github.com/nytimes-style
 == AUTHORS
 
 Andrei Scheinkman, andrei@nytimes.com
+
 Tyson Evans, tyson.evans@nytimes.com
