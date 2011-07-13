@@ -30,6 +30,6 @@ Annotated source code: http://ascheink.github.com/nytimes-style
 
 == AUTHORS
 
-Andrei Scheinkman, andrei@nytimes.com
+Andrei Scheinkman, andreischeinkman@gmail.com
 
 Tyson Evans, tyson.evans@nytimes.com
