@@ -39,6 +39,17 @@ module Nytimes
       raise ArgumentError.new "Unknown month: #{month}" unless (1..12).include? month
       %w(Jan. Feb. March April May June July Aug. Sept. Oct. Nov. Dec.)[month - 1]
     end
+    
+    # > "Use numerals in giving clock time: 10:30 a.m.; 10:30.
+    # > Do not use half-past 10 except in a direct quotation.
+    # > Also avoid the redundant 10:30 a.m. yesterday morning and Monday afternoon at 2 p.m."
+    def nytimes_time(time, opts={})
+      raise ArgumentError.new "Time or DateTime required" unless time.class == DateTime || time.class == Time
+      str = ""
+      str << time.strftime("%l:%M").strip
+      str << time.strftime(" %p").sub('PM','p.m.').sub('AM','a.m.') unless opts[:hide_abbreviation]
+      str
+    end
 
     # > "The abbreviation to be used for each state, after the names of cities,
     # > towns and counties&hellip; Use no
