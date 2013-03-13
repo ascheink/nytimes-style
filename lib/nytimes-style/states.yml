@@ -30,6 +30,10 @@
   name: Delaware
   nytimes_abbrev: Del.
   postal_code: DE
+- fips_code: 11
+  name: District of Columbia
+  nytimes_abbrev: D.C.
+  postal_code: DC
 - fips_code: 12
   name: Florida
   nytimes_abbrev: Fla.
