@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.name        = "nytimes-style"
   s.version     = Nytimes::Style::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Andrei Scheinkman", "Tyson Evans"]
-  s.email       = ["andrei@nytimes.com", "tyson.evans@nytimes.com"]
+  s.authors     = ["Andrei Scheinkman", "Tyson Evans", "Derek Willis"]
+  s.email       = ["andrei@nytimes.com", "tyson.evans@nytimes.com", "dwillis@nytimes.com"]
   s.homepage    = "http://github.com/ascheink/nytimes-style"
   s.summary     = %q{New York Times style}
   s.description = %q{Format numbers and dates according to The New York Times Manual of Style}
