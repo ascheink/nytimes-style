@@ -28,8 +28,10 @@ Annotated source code: http://ascheink.github.com/nytimes-style
   >> nytimes_state_name '55'
   # => "Wisconsin"  
 
-== AUTHORS
+== CONTRIBUTORS
 
 Andrei Scheinkman, andreischeinkman@gmail.com
 
 Tyson Evans, tyson.evans@nytimes.com
+
+Derek Willis, dwillis@nytimes.com
