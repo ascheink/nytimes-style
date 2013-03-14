@@ -47,11 +47,13 @@ hosted on <a href="https://github.com/ascheink/nytimes-style">Github</a>.</p>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-3">&#182;</a>
         </div>
-        <blockquote><p>&ldquo;In general, spell out the first nine cardinal and
+        <blockquote>
+<p>&ldquo;In general, spell out the first nine cardinal and 
 ordinal numbers [but] spell any number that begins a sentence&hellip;&rdquo;
-Exceptions include &ldquo;ages of people
-and animals,&rdquo; &ldquo;sums of money,&rdquo; &ldquo;degrees of temperature&rdquo; and &ldquo;mentions of the Twelve
-Apostles and the Ten Commandments.&rdquo;</p></blockquote>
+Exceptions include &ldquo;ages of people 
+and animals,&rdquo; &ldquo;sums of money,&rdquo; &ldquo;degrees of temperature&rdquo; and &ldquo;mentions of the Twelve 
+Apostles and the Ten Commandments.&rdquo;</p>
+</blockquote>
       </td>
       <td class=code>
         <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_number</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -68,10 +70,12 @@ Apostles and the Ten Commandments.&rdquo;</p></blockquote>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-4">&#182;</a>
         </div>
-        <blockquote><p>&ldquo;Abbreviate the names of months from August through
+        <blockquote>
+<p>&ldquo;Abbreviate the names of months from August through
 February in news copy when they are followed by numerals: Aug. 1; Sept.
 2; Oct. 3; Nov. 4; Dec. 5; Jan. 6; Feb. 7. Do not abbreviate March,
-April, May, June and July except as a last resort in a chart or table.&rdquo;</p></blockquote>
+April, May, June and July except as a last resort in a chart or table.&rdquo;</p>
+</blockquote>
       </td>
       <td class=code>
         <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_date</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">opts</span><span class="o">=</span><span class="p">{})</span>
@@ -98,9 +102,11 @@ April, May, June and July except as a last resort in a chart or table.&rdquo;</p
         <div class="pilwrap">
           <a class="pilcrow" href="#section-5">&#182;</a>
         </div>
-        <blockquote><p>&ldquo;Use numerals in giving clock time: 10:30 a.m.; 10:30.
+        <blockquote>
+<p>&ldquo;Use numerals in giving clock time: 10:30 a.m.; 10:30.
 Do not use half-past 10 except in a direct quotation.
-Also avoid the redundant 10:30 a.m. yesterday morning and Monday afternoon at 2 p.m.&rdquo;</p></blockquote>
+Also avoid the redundant 10:30 a.m. yesterday morning and Monday afternoon at 2 p.m.&rdquo;</p>
+</blockquote>
       </td>
       <td class=code>
         <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">opts</span><span class="o">=</span><span class="p">{})</span>
@@ -117,12 +123,13 @@ Also avoid the redundant 10:30 a.m. yesterday morning and Monday afternoon at 2 
         <div class="pilwrap">
           <a class="pilcrow" href="#section-6">&#182;</a>
         </div>
-        <blockquote><p>&ldquo;The abbreviation to be used for each state, after the names of cities,
+        <blockquote>
+<p>&ldquo;The abbreviation to be used for each state, after the names of cities,
 towns and counties&hellip; Use no
 spaces between initials like N.H. Do not abbreviate Alaska, Hawaii, Idaho,
 Iowa, Ohio and Utah. (Do not ordinarily use the Postal Service’s
-two-letter abbreviations; some are hard to tell apart on quick reading.)&rdquo;</p></blockquote>
-
+two-letter abbreviations; some are hard to tell apart on quick reading.)&rdquo;</p>
+</blockquote>
       </td>
       <td class=code>
         <div class='highlight'><pre>    <span class="k">def</span> <span class="nf">nytimes_state_abbrev</span><span class="p">(</span><span class="n">state_name_or_code</span><span class="p">)</span>
