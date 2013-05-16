@@ -202,3 +202,7 @@
   name: Wyoming
   nytimes_abbrev: Wyo.
   postal_code: WY
+- fips_code: 72
+  name: Puerto Rico
+  nytimes_abbrev: P.R.
+  postal_code: PR
