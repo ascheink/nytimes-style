@@ -73,7 +73,7 @@ module Nytimes
     STATE_DATA_FILE = File.join(File.dirname(__FILE__), 'nytimes-style/states.yml')
 
     def states
-      @states ||= YAML::load(File.open(STATE_DATA_FILE)).inject({}) do |h, state|
+      @_nytimes_states ||= YAML::load(File.open(STATE_DATA_FILE)).inject({}) do |h, state|
         h.merge({ state['postal_code'] => state, state['name'] => state, state['fips_code'] => state })
       end
     end
